@@ -1,0 +1,15 @@
+{
+   auto_https disable_redirects
+}
+
+klwebsite.klchicken.com {
+	respond "Hello World"
+}
+
+klwebsitestaging.klchicken.com {
+	reverse_proxy klwebsite-staging-app-1:8080
+}
+
+klwebsitedev.klchicken.com {
+	reverse_proxy klwebsite-dev-app-1:8080
+}

@@ -1,0 +1,22 @@
+services:
+  caddy:
+    image: caddy:2.8.4-alpine
+    restart: unless-stopped
+    container_name: "klwebsite-webserver"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - klwebserver
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  klwebserver:
+    name: klwebserver-network
