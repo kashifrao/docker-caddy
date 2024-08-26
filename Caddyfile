@@ -1,15 +1,17 @@
+# Setup all virtual hosts
+
 {
    auto_https disable_redirects
 }
 
-klwebsite.klchicken.com {
+subdomain1.domain.com {
 	respond "Hello World"
 }
 
-klwebsitestaging.klchicken.com {
-	reverse_proxy klwebsite-staging-app-1:8080
+subdomain2.domain.com {
+	reverse_proxy name-staging-app-1:8080
 }
 
-klwebsitedev.klchicken.com {
-	reverse_proxy klwebsite-dev-app-1:8080
+subdomain3.domain.com {
+	reverse_proxy name-dev-app-1:8080
 }
